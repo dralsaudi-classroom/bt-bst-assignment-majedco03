@@ -159,19 +159,32 @@ public class BST<T> {
 		if (p == null)
 			return 0;
 
-		LinkedStack<BSTNode<T>> stack = new LinkedStack<>();
-		stack.push(p);
-		while (!stack.empty()) {
-			count++;
-			if (p.right != null)
-				stack.push(p.right);
-
-			if (p.left != null)
+		while(p.key != k) {
+			if (k < p.key)
 				p = p.left;
-
 			else
-				p = stack.pop();
+				p = p.right;
+			if (p == null)
+				return 0;
 		}
+
+
+			LinkedStack<BSTNode<T>> stack = new LinkedStack<>();
+			stack.push(p);
+			while (!stack.empty()) {
+				count++;
+				if (p.right != null)
+					stack.push(p.right);
+
+				if (p.left != null)
+					p = p.left;
+
+				else
+					p = stack.pop();
+			}
+
+
+
 		return count;
 
 
