@@ -98,7 +98,7 @@ public class BT<T> {
 	public boolean isLeaf() {
 		return current.left == null && current.right == null;
 	}
-	public int countLeaves() {
+	public int countLeaves() { 
 		int count=0;
 		BTNode<T> p = root;
 		if (p==null)
